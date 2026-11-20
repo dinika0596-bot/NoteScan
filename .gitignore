@@ -1,0 +1,50 @@
+# ===========================
+# Flutter & Dart
+# ===========================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+
+# ===========================
+# Environment & Secrets (JANGAN di-commit!)
+# ===========================
+.env
+*.env.local
+
+# ===========================
+# Android
+# ===========================
+**/android/.gradle/
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/key.properties
+*.jks
+*.keystore
+
+# ===========================
+# iOS
+# ===========================
+**/ios/.symlinks/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Pods/
+
+# ===========================
+# IDE
+# ===========================
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# ===========================
+# OS Files
+# ===========================
+.DS_Store
+Thumbs.db
+desktop.ini
