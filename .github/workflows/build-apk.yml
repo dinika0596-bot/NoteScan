@@ -74,3 +74,4 @@ jobs:
           echo "===== Informasi APK Release NoteScan ====="
           ls -lh build/app/outputs/flutter-apk/app-release.apk
           echo "==========================================="
+      - name: Add groovy-xml jar to Gradle libs
