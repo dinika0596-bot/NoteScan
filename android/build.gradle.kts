@@ -1,3 +1,6 @@
+buildscript {
+    dependencies { compileOnly("org.codehaus.groovy:groovy-xml") }
+}
 allprojects {
     repositories {
         google()
@@ -22,3 +25,4 @@ subprojects {
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
+
