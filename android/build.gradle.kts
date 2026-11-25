@@ -1,6 +1,3 @@
-buildscript {
-    dependencies { compileOnly("org.codehaus.groovy:groovy-xml") }
-}
 allprojects {
     repositories {
         google()
