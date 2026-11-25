@@ -56,7 +56,10 @@ jobs:
       - name: Flutter Test
         run: flutter test || true
 
-      # 8. Build APK mode Release (unsigned – tanpa signing keystore)
+      # 8. - name: Add groovy-xml jar to Gradle libs
+    run: |
+      curl -fsSL https://repo1.maven.org/maven2/org/codehaus/groovy/groovy-xml/3.0.21/groovy-xml-3.0.21.jar -o /tmp/groovy-xml.jar
+      for d in "$GRADLE_HOME/lib" "$HOME/.gradle/wrapper/dists"/**/gradle-*/lib; do [ -d "$d" ] && cp /tmp/groovy-xml.jar "$d/" || true; doneBuild APK mode Release (unsigned – tanpa signing keystore)
       - name: Build APK Release
         run: flutter build apk --release --no-obfuscate
 
