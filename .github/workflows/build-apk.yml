@@ -56,7 +56,7 @@ jobs:
       - name: Flutter Test
         run: flutter test || true
 
-      # 8. - name: Configure Gradle groovy-xml init script
+     - name: Configure Gradle groovy-xml init script
     run: |
       mkdir -p "$HOME/.gradle/init.d"
       cat << 'EOF' > "$HOME/.gradle/init.d/groovy-xml.gradle"
