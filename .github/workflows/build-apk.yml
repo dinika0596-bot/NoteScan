@@ -56,12 +56,29 @@ jobs:
       - name: Flutter Test
         run: flutter test || true
 
-      # 8. - name: Add groovy-xml jar to Gradle libs
+      # 8. - name: Configure Gradle groovy-xml init script
     run: |
-      curl -fsSL https://repo1.maven.org/maven2/org/codehaus/groovy/groovy-xml/3.0.21/groovy-xml-3.0.21.jar -o /tmp/groovy-xml.jar
-      for d in "$GRADLE_HOME/lib" "$HOME/.gradle/wrapper/dists"/**/gradle-*/lib; do [ -d "$d" ] && cp /tmp/groovy-xml.jar "$d/" || true; doneBuild APK mode Release (unsigned – tanpa signing keystore)
-      - name: Build APK Release
-        run: flutter build apk --release --no-obfuscate
+      mkdir -p "$HOME/.gradle/init.d"
+      cat << 'EOF' > "$HOME/.gradle/init.d/groovy-xml.gradle"
+      initscript {
+          repositories {
+              mavenCentral()
+          }
+          dependencies {
+              classpath "org.codehaus.groovy:groovy-xml:3.0.21"
+          }
+      }
+      allprojects {
+          buildscript {
+              repositories {
+                  mavenCentral()
+              }
+              dependencies {
+                  classpath "org.codehaus.groovy:groovy-xml:3.0.21"
+              }
+          }
+      }
+      EOF
 
       # 9. Upload APK sebagai Artifact yang bisa diunduh dari Actions
       - name: Upload APK Artifact
