@@ -74,7 +74,7 @@ class NoteScanApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: Colors.white,
           elevation: 0,
           shape: RoundedRectangleBorder(
