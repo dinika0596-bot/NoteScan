@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.notescan"
-    compileSdk = compileSdk = 36 
+    compileSdk = 36 
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
