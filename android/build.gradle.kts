@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.LibraryExtension
+
 allprojects {
     repositories {
         google()
@@ -18,22 +20,9 @@ subprojects {
 
 subprojects {
     project.evaluationDependsOn(":app")
-}
-
-gradle.projectsEvaluated {
-    subprojects {
-        val androidExt = extensions.findByName("android")
-        if (androidExt != null) {
-            try {
-                val setCompileSdk = androidExt.javaClass.getMethod("setCompileSdk", Int::class.javaPrimitiveType)
-                setCompileSdk.invoke(androidExt, 37)
-            } catch (_: Exception) {
-                try {
-                    val compileSdkVersion = androidExt.javaClass.getMethod("compileSdkVersion", Int::class.javaPrimitiveType)
-                    compileSdkVersion.invoke(androidExt, 37)
-                } catch (_: Exception) {
-                }
-            }
+    plugins.withId("com.android.library") {
+        configure<LibraryExtension> {
+            compileSdk = 37
         }
     }
 }
