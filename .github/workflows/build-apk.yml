@@ -12,7 +12,7 @@ on:
   workflow_dispatch: # Memungkinkan trigger manual dari tab Actions GitHub
 
 jobs:
-  build-apk:
+build-apk:
     name: Build Flutter APK Release
     runs-on: ubuntu-latest
 
